@@ -1,9 +1,9 @@
 
 
 
-**# S.H.I.V.I.: Smart Humanistic Interface Virtual Intelligence**
+**# S.H.I.V.I.2.0: Smart Humanistic Interface Virtual Intelligence**
   
-live DEMO: (https://vishalrajbhardwaj.github.io/Shivi/ )
+live DEMO: (https://vishalrajbhardwaj.github.io/shivi2.o/)
 
 ## Overview
 

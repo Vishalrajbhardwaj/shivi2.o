@@ -1,0 +1,11 @@
+- [ ] Update index.html: add better status row + improve accessibility/structure for mic state
+- [ ] Update style.css: add listening/busy visual states + blinking indicator + reduced-motion support
+- [ ] Update app.js:
+  - [ ] Fix likely missing/undefined `askLangVoiceIfNeeded()` usage (implement or remove safely)
+  - [ ] Add UI state helpers: idle/listening/processing/error
+  - [ ] Wire mic button to toggle listening UI + disable controls during recognition
+  - [ ] Improve recognition lifecycle text transitions
+- [ ] Quick manual test notes (browser/Chrome):
+  - [ ] Voice dropdown populates without errors
+  - [ ] Mic button shows listening state
+  - [ ] No JS runtime errors on load

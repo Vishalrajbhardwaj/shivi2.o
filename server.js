@@ -82,6 +82,6 @@ ${message}
 });
 
 // =====================
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("✅ SHIVI AI Server Running on http://localhost:3000");
 });

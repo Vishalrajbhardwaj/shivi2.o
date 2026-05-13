@@ -704,7 +704,7 @@ async function getAIResponse(message) {
     }
 
     // ✅ Sirf ek fetch — apna server
-   const response = await fetch('/chat', {
+   const response = await fetch('https://shivi2-o.onrender.com/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

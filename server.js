@@ -14,6 +14,9 @@ const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemi
 
 app.post("/chat", async (req, res) => {
   try {
+
+    console.log("API KEY:", GEMINI_API_KEY ? "✅ Loaded" : "❌ Missing");
+
     const { message, history } = req.body;
 
     const contents = [];
@@ -27,17 +30,10 @@ app.post("/chat", async (req, res) => {
       });
     }
 
-    if (contents.length === 0) {
-      contents.push({
-        role: "user",
-        parts: [{ text: message }],
-      });
-    } else {
-      contents.push({
-        role: "user",
-        parts: [{ text: message }],
-      });
-    }
+    contents.push({
+      role: "user",
+      parts: [{ text: message }],
+    });
 
     const response = await axios.post(
       GEMINI_URL,
@@ -56,8 +52,7 @@ app.post("/chat", async (req, res) => {
 - You are NOT Google, NOT Gemini — you are SHIVI only
 - Be friendly, emotional, human-like
 - Reply in the same language the user uses (Hindi, Bhojpuri, or English)
-- Keep replies short: 1-4 lines max
-- Bhojpuri words to use: बानी, बा, रउरा, हमके`,
+- Keep replies short: 1-4 lines max`,
             },
           ],
         },
@@ -73,10 +68,12 @@ app.post("/chat", async (req, res) => {
       response.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       "Sorry, koi response nahi mila.";
 
+    console.log("Gemini Reply:", reply);
+
     return res.json({ reply });
 
   } catch (err) {
-    console.error("Gemini API Error:", err?.response?.data || err.message);
+    console.error("Gemini Error:", err?.response?.data || err.message);
     res.json({
       reply: "Sorry, SHIVI AI abhi thodi der ke liye unavailable hai.",
     });
